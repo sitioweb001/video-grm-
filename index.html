@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Plan interactivo · Video Morfología (7 personas)</title>
+<title>Plan interactivo · Video Morfología (6 personas)</title>
 
 <!-- TailwindCSS -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -29,8 +29,8 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
     <div class="flex items-center space-x-3">
       <div class="bg-teal-600 text-white font-bold rounded-lg p-2 text-xl">UGB</div>
-      <h1 class="text-xl font-bold text-slate-900 hidden sm:block">Planificación: Video Morfología (Sem 3-5)</h1>
-      <h1 class="text-xl font-bold text-slate-900 block sm:hidden">Planif. Video</h1>
+      <h1 class="text-xl font-bold text-slate-900 hidden sm:block">Planificación: Video Morfología (Sem 3-5) · 6 personas</h1>
+      <h1 class="text-xl font-bold text-slate-900 block sm:hidden">Planif. 6p</h1>
     </div>
     <nav class="flex space-x-4">
       <button onclick="scrollToSection('dashboard')" class="text-sm font-medium hover:text-teal-600">Dashboard</button>
@@ -43,12 +43,12 @@
 
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
 
-  <!-- DASHBOARD -->
+  <!-- DASHBOARD (actualizado a 6 personas) -->
   <section id="dashboard" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
     <div class="lg:col-span-2 space-y-4">
-      <h2 class="text-3xl font-bold text-slate-900">Panel de control</h2>
+      <h2 class="text-3xl font-bold text-slate-900">Panel de control · 6 integrantes</h2>
       <p class="text-lg text-slate-600">
-        <b>7 integrantes · cada uno habla una sola vez</b>. Los guiones extendidos ofrecen una base sólida; ajústalos con tus palabras para mantener naturalidad.
+        <b>Cada persona habla una sola vez</b>. Los guiones extendidos ofrecen una base sólida; ajústalos con tus palabras para mantener naturalidad.
       </p>
       <!-- métricas rápidas -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
@@ -57,7 +57,7 @@
           <div class="text-xs text-slate-500 uppercase tracking-wide">Minutos totales</div>
         </div>
         <div class="bg-white p-4 rounded-xl shadow border border-slate-100 text-center">
-          <div class="text-3xl font-bold text-teal-600">7</div>
+          <div class="text-3xl font-bold text-teal-600">6</div>
           <div class="text-xs text-slate-500 uppercase tracking-wide">Participantes</div>
         </div>
         <div class="bg-white p-4 rounded-xl shadow border border-slate-100 text-center">
@@ -74,27 +74,27 @@
         <h3 class="font-bold text-lg mb-4 flex items-center text-teal-800"><span class="mr-2">📋</span> Criterios de evaluación (checklist)</h3>
         <div class="space-y-3">
           <label class="flex items-start space-x-3 cursor-pointer p-2 hover:bg-slate-50 rounded"><input type="checkbox" class="h-5 w-5 text-teal-600 mt-1"><div><span class="font-semibold">Dominio teórico (4 pts)</span><p class="text-sm text-slate-500">Explicaciones precisas, sin leer, vocabulario académico.</p></div></label>
-          <label class="flex items-start space-x-3 cursor-pointer p-2 hover:bg-slate-50 rounded"><input type="checkbox" class="h-5 w-5 text-teal-600 mt-1"><div><span class="font-semibold">Expresión oral (4 pts)</span><p class="text-sm text-slate-500">Fluidez, seguridad, participación equitativa.</p></div></label>
+          <label class="flex items-start space-x-3 cursor-pointer p-2 hover:bg-slate-50 rounded"><input type="checkbox" class="h-5 w-5 text-teal-600 mt-1"><div><span class="font-semibold">Expresión oral (4 pts)</span><p class="text-sm text-slate-500">Fluidez, seguridad, participación equitativa (6).</p></div></label>
           <label class="flex items-start space-x-3 cursor-pointer p-2 hover:bg-slate-50 rounded"><input type="checkbox" class="h-5 w-5 text-teal-600 mt-1"><div><span class="font-semibold">Recursos visuales (1 pt)</span><p class="text-sm text-slate-500">Esquemas, palabras clave, imágenes. Nada de texto excesivo.</p></div></label>
           <label class="flex items-start space-x-3 cursor-pointer p-2 hover:bg-slate-50 rounded"><input type="checkbox" class="h-5 w-5 text-teal-600 mt-1"><div><span class="font-semibold">Indicaciones (1 pt)</span><p class="text-sm text-slate-500">Duración 8-15 min, estructura completa (intro/desarrollo/cierre).</p></div></label>
         </div>
       </div>
     </div>
-    <!-- GRÁFICO DE TIEMPOS POR PERSONA (CORREGIDO) -->
+    <!-- GRÁFICO DE TIEMPOS POR PERSONA (6 personas) -->
     <div class="bg-white p-6 rounded-xl shadow border border-slate-100 flex flex-col items-center justify-center">
       <h3 class="font-bold text-lg mb-2 text-center text-slate-800">Tiempo estimado por persona</h3>
-      <p class="text-sm text-slate-500 mb-4 text-center">~12 min en total (cada uno entre 1:30 y 2:00)</p>
+      <p class="text-sm text-slate-500 mb-4 text-center">~12 min total (cada uno entre 1:50 y 2:10)</p>
       <div class="chart-container">
         <canvas id="timeChartPersonas"></canvas>
       </div>
-      <div class="mt-4 text-xs text-slate-400 text-center">P1: Intro · P2: Lex/morf · P3: Comp/deriv · P4: Parasint/acron · P5: División silábica · P6: Tipos de sílabas · P7: Dipt/hiat + cierre</div>
+      <div class="mt-4 text-xs text-slate-400 text-center">P1: Intro + palabra · P2: Lex/morf prof. · P3: Comp/deriv · P4: Parasint/acron · P5: Div.silábica + tipos · P6: Dipt/tript/hiat + cierre</div>
     </div>
   </section>
 
-  <!-- ESTRUCTURA 7 PERSONAS (CADA UNA HABLA UNA VEZ) -->
+  <!-- ESTRUCTURA 6 PERSONAS (CADA UNA HABLA UNA VEZ) -->
   <section id="structure" class="space-y-6">
     <div class="border-b border-slate-200 pb-4">
-      <h2 class="text-2xl font-bold text-slate-900">Los 7 roles · una intervención por persona</h2>
+      <h2 class="text-2xl font-bold text-slate-900">Los 6 roles · una intervención por persona</h2>
       <p class="text-slate-600 mt-2">Haz clic en cada tarjeta para ver el guion extendido y los recursos sugeridos.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
@@ -158,22 +158,22 @@
 
 <footer class="bg-slate-800 text-slate-400 py-8 mt-12">
   <div class="max-w-7xl mx-auto px-4 text-center text-sm">
-    <p>Herramienta de planificación · Universidad Gerardo Barrios · Ingeniería en Sistemas</p>
+    <p>Herramienta de planificación · Universidad Gerardo Barrios · Ingeniería en Sistemas · 6 integrantes</p>
   </div>
 </footer>
 
 <script>
   // ------------------------------------------------------------
-  // DATOS COMPLETOS DE LOS 7 INTEGRANTES (guión extenso original)
+  // DATOS COMPLETOS DE LOS 6 INTEGRANTES (guión extenso original)
   // ------------------------------------------------------------
   const speakers = [
-    { id:1, role:"Intro + Palabra", icon:"🎤", time:"1:45 min",
-      desc:"Saludo, presentación y concepto de palabra.",
+    { id:1, role:"Intro + concepto de palabra", icon:"🎤", time:"2:00 min",
+      desc:"Saludo, presentación y base de la morfología.",
       content: {
-        title:"Introducción y definición de palabra",
+        title:"Introducción y estructura básica",
         whatToSay:[
-          "<b>Saludo formal:</b> 'Hola, somos el equipo [nombre] de la UGB, carrera Ingeniería en Sistemas. Hoy explicaremos la morfología del castellano: estructura de palabras, formación, división silábica y vocales.'",
-          "<b>Definición de palabra:</b> 'Una palabra es una unidad léxica con un significado fijo y una categoría gramatical. Está formada por sonidos articulados.'",
+          "<b>Saludo:</b> 'Hola, somos el equipo [nombre] de la UGB, carrera Ingeniería en Sistemas. Hoy explicaremos la morfología del castellano: estructura de palabras, formación, división silábica y vocales.'",
+          "<b>Definición de palabra:</b> 'Una palabra es una unidad léxica con significado fijo y categoría gramatical. Está formada por sonidos articulados.'",
           "<b>Lexema (raíz):</b> 'Parte invariable que aporta el significado principal. Ej: en “mar”, “marino”, “maremoto” el lexema es MAR. Hay lexemas independientes (árbol) y dependientes (camin-).'",
           "<b>Morfema:</b> 'Aporta significado gramatical. En “perros”, -o indica masculino, -s plural. Tipos: prefijos (in-), sufijos (-ito), flexivos (género, número).'",
           "<b>Cierre de la participación:</b> 'A continuación mis compañeros desarrollarán cada proceso en detalle.'"
@@ -184,8 +184,8 @@
           "Fotografía de un perro y la palabra 'perros' separada en PERRO (lex) + S (morf)."
         ]
     }},
-    { id:2, role:"Lexemas y morfemas (ampliación)", icon:"🧩", time:"1:45 min",
-      desc:"Profundización: clases de lexemas y morfemas.",
+    { id:2, role:"Lexemas y morfemas (ampliación)", icon:"🧩", time:"2:00 min",
+      desc:"Clasificación detallada de lexemas y morfemas.",
       content: {
         title:"Clasificación de lexemas y morfemas",
         whatToSay:[
@@ -202,7 +202,7 @@
         ]
     }},
     { id:3, role:"Composición y derivación", icon:"⚙️", time:"2:00 min",
-      desc:"Formación de palabras: unión y afijos.",
+      desc:"Formación por unión y afijos.",
       content: {
         title:"Procesos de formación (I)",
         whatToSay:[
@@ -218,7 +218,7 @@
           "Lista rápida: prefijos comunes (re-, sub-, super-) y sufijos (-dor, -ble)."
         ]
     }},
-    { id:4, role:"Parasíntesis y acronimia", icon:"🔗", time:"2:00 min",
+    { id:4, role:"Parasíntesis y acronimia", icon:"🔗", time:"2:10 min",
       desc:"Combinación compleja y siglas.",
       content: {
         title:"Procesos de formación (II)",
@@ -235,45 +235,29 @@
           "Ejemplo visual: PARAGUAS + -AZO = PARAGUAZO."
         ]
     }},
-    { id:5, role:"División silábica", icon:"✂️", time:"2:00 min",
-      desc:"Reglas para separar en sílabas.",
+    { id:5, role:"División silábica + tipos de sílabas", icon:"✂️", time:"2:10 min",
+      desc:"Reglas de separación y clasificación de sílabas.",
       content: {
-        title:"Reglas de división silábica",
+        title:"Reglas de división y clases de sílabas",
         whatToSay:[
           "<b>Importancia:</b> 'Saber dividir en sílabas es clave para la acentuación y para partir palabras al final del renglón.'",
           "<b>Regla básica:</b> 'Una consonante entre vocales va con la vocal siguiente: ca-sa, sa-lud.'",
           "<b>Grupos inseparables:</b> 'pr, br, tr, dr, cr, gr, fr, pl, bl, cl, gl, fl nunca se separan: a-bril, a-tlántico (en América se mantiene unido, en España varía).'",
           "<b>Tres consonantes:</b> 'Las dos primeras con la vocal anterior: ins-tan-te, cons-tan-te.'",
-          "<b>Cuatro consonantes:</b> 'Dos con la anterior y dos con la siguiente: cons-truir, abs-tracto.'",
-          "<b>Dígrafos:</b> 'ch, ll, rr son inseparables: ca-lle, pe-rro.'"
+          "<b>Tipos de sílabas:</b> 'Tónica (más fuerza: cá-ma-ra) vs átona. Directas (ma-no), inversas (al-to), mixtas (pan).'",
+          "<b>Clasificación por número:</b> 'Monosílabas (sol), bisílabas (ca-sa), trisílabas (pá-ja-ro), tetrasílabas...'"
         ],
         resources:[
           "Ejemplo visual: “cons-tan-te” con colores.",
           "Tabla de grupos inseparables (PR, BR, TR...).",
-          "Dibujo de tijeras separando una palabra."
+          "Dibujo de tijeras separando una palabra.",
+          "Nota musical sobre la sílaba tónica."
         ]
     }},
-    { id:6, role:"Tipos de sílabas / clasificación", icon:"📐", time:"1:45 min",
-      desc:"Sílaba tónica, átona, clases y número de sílabas.",
+    { id:6, role:"Diptongos, triptongos, hiatos + cierre", icon:"🔊", time:"2:20 min",
+      desc:"Combinaciones vocálicas y conclusión general.",
       content: {
-        title:"Clases de sílabas y clasificación de palabras",
-        whatToSay:[
-          "<b>Sílaba tónica y átona:</b> 'La sílaba que suena más fuerte es la tónica (cá-ma-ra); las demás son átonas.'",
-          "<b>Tipos según estructura:</b> 'Directas (consonante+vocal: ma-no), inversas (vocal+consonante: al-to), mixtas (C+V+C: pan, mar).'",
-          "<b>Según número de sílabas:</b> 'Monosílabas (sol, luz), bisílabas (ca-sa), trisílabas (pá-ja-ro), tetrasílabas (bi-bli-o-te-ca), pentasílabas, etc.'",
-          "<b>Importancia:</b> 'Reconocer la sílaba tónica es esencial para colocar bien las tildes.'",
-          "<b>Ejemplo lúdico:</b> 'Palabras largas como “electroencefalografista” tienen muchas sílabas y suelen ser esdrújulas.'"
-        ],
-        resources:[
-          "Nota musical sobre la sílaba tónica.",
-          "Tabla: directa/inversa/mixta con ejemplos gráficos.",
-          "Escalera de palabras: 1️⃣ SOL, 2️⃣ CA-SA, 3️⃣ PÁ-JA-RO..."
-        ]
-    }},
-    { id:7, role:"Diptongos, triptongos, hiatos + cierre", icon:"🔊", time:"2:15 min",
-      desc:"Combinaciones vocálicas y despedida.",
-      content: {
-        title:"Vocales en grupo y conclusión general",
+        title:"Vocales en grupo y despedida",
         whatToSay:[
           "<b>Diptongo:</b> 'Dos vocales en una sílaba. Requiere una cerrada (i,u) átona. Tipos: creciente (cerrada+abierta: via-je), decreciente (abierta+cerrada: ai-re), homogéneo (cerrada+cerrada: ciu-dad).'",
           "<b>Triptongo:</b> 'Tres vocales en una sílaba: cerrada+abierta+cerrada. Ej: Paraguay, lim-piáis, miau.'",
@@ -284,7 +268,7 @@
         resources:[
           "Tabla comparativa diptongo/triptongo/hiato con ejemplos.",
           "Palabras destacadas: PARAGUAY, DÍA, BAÚL.",
-          "Frase de cierre y créditos con nombres de los 7 integrantes."
+          "Frase de cierre y créditos con nombres de los 6 integrantes."
         ]
     }}
   ];
@@ -363,10 +347,10 @@
     chartInstance = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['P1 Intro', 'P2 Lex/morf', 'P3 Comp/der', 'P4 Parasint', 'P5 Div.sil', 'P6 Tipo sil', 'P7 Dipt/hiat'],
+        labels: ['P1 Intro', 'P2 Lex/morf', 'P3 Comp/der', 'P4 Parasint', 'P5 Div+tipos', 'P6 Dipt+cierre'],
         datasets: [{
           label: 'minutos',
-          data: [1.7, 1.7, 1.8, 1.8, 1.7, 1.7, 2.0], // suma 12.4 aprox
+          data: [2.0, 2.0, 2.0, 2.1, 2.1, 2.2], // suma 12.4 aprox
           backgroundColor: '#0d9488',
           borderRadius: 6
         }]
