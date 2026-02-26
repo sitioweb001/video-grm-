@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Plan interactivo · Video Morfología (7 personas)</title>
+
+<!-- TailwindCSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Chart.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+
+<style>
+  body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #f8fafc; }
+  .speaker-card { transition: all 0.2s ease; }
+  .speaker-card:hover { transform: translateY(-2px); background-color: #f1f5f9; }
+  .speaker-card.active { border-left: 4px solid #0d9488; background-color: #f0fdfa; }
+  .tab-btn.active { border-bottom: 2px solid #0d9488; color: #0d9488; font-weight: 600; }
+  .animate-fade-in { animation: fadeIn .25s ease-in-out; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+  .chart-container { position: relative; width: 100%; max-width: 500px; height: 280px; margin: 0 auto; }
+</style>
+</head>
+<body class="text-slate-800">
+
+<!-- Header -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+    <div class="flex items-center space-x-3">
+      <div class="bg-teal-600 text-white font-bold rounded-lg p-2 text-xl">UGB</div>
+      <h1 class="text-xl font-bold text-slate-900 hidden sm:block">Planificación: Video Morfología (Sem 3-5)</h1>
+      <h1 class="text-xl font-bold text-slate-900 block sm:hidden">Planif. Video</h1>
+    </div>
+    <nav class="flex space-x-4">
+      <button onclick="scrollToSection('dashboard')" class="text-sm font-medium hover:text-teal-600">Dashboard</button>
+      <button onclick="scrollToSection('structure')" class="text-sm font-medium hover:text-teal-600">Roles</button>
+      <button onclick="scrollToSection('theory')" class="text-sm font-medium hover:text-teal-600">Teoría</button>
+      <button onclick="scrollToSection('references')" class="text-sm font-medium hover:text-teal-600">Referencias</button>
+    </nav>
+  </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+  <!-- DASHBOARD -->
+  <section id="dashboard" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div class="lg:col-span-2 space-y-4">
+      <h2 class="text-3xl font-bold text-slate-900">Panel de control</h2>
+      <p class="text-lg text-slate-600">
+        <b>7 integrantes · cada uno habla una sola vez</b>. Los guiones extendidos ofrecen una base sólida; ajústalos con tus palabras para mantener naturalidad.
+      </p>
+      <!-- métricas rápidas -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+        <div class="bg-white p-4 rounded-xl shadow border border-slate-100 text-center">
+          <div class="text-3xl font-bold text-teal-600">12</div>
+          <div class="text-xs text-slate-500 uppercase tracking-wide">Minutos totales</div>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow border border-slate-100 text-center">
+          <div class="text-3xl font-bold text-teal-600">7</div>
+          <div class="text-xs text-slate-500 uppercase tracking-wide">Participantes</div>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow border border-slate-100 text-center">
+          <div class="text-3xl font-bold text-teal-600">10</div>
+          <div class="text-xs text-slate-500 uppercase tracking-wide">Puntos posibles</div>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow border border-slate-100 text-center">
+          <div class="text-3xl font-bold text-teal-600">3</div>
+          <div class="text-xs text-slate-500 uppercase tracking-wide">Semanas</div>
+        </div>
+      </div>
+      <!-- checklist rúbrica -->
+      <div class="mt-8 bg-white p-6 rounded-xl shadow border border-slate-100">
+        <h3 class="font-bold text-lg mb-4 flex items-center text-teal-800"><span class="mr-2">📋</span> Criterios de evaluación (checklist)</h3>
+        <div class="space-y-3">
+          <label class="flex items-start space-x-3 cursor-pointer p-2 hover:bg-slate-50 rounded"><input type="checkbox" class="h-5 w-5 text-teal-600 mt-1"><div><span class="font-semibold">Dominio teórico (4 pts)</span><p class="text-sm text-slate-500">Explicaciones precisas, sin leer, vocabulario académico.</p></div></label>
+          <label class="flex items-start space-x-3 cursor-pointer p-2 hover:bg-slate-50 rounded"><input type="checkbox" class="h-5 w-5 text-teal-600 mt-1"><div><span class="font-semibold">Expresión oral (4 pts)</span><p class="text-sm text-slate-500">Fluidez, seguridad, participación equitativa.</p></div></label>
+          <label class="flex items-start space-x-3 cursor-pointer p-2 hover:bg-slate-50 rounded"><input type="checkbox" class="h-5 w-5 text-teal-600 mt-1"><div><span class="font-semibold">Recursos visuales (1 pt)</span><p class="text-sm text-slate-500">Esquemas, palabras clave, imágenes. Nada de texto excesivo.</p></div></label>
+          <label class="flex items-start space-x-3 cursor-pointer p-2 hover:bg-slate-50 rounded"><input type="checkbox" class="h-5 w-5 text-teal-600 mt-1"><div><span class="font-semibold">Indicaciones (1 pt)</span><p class="text-sm text-slate-500">Duración 8-15 min, estructura completa (intro/desarrollo/cierre).</p></div></label>
+        </div>
+      </div>
+    </div>
+    <!-- GRÁFICO DE TIEMPOS POR PERSONA (CORREGIDO) -->
+    <div class="bg-white p-6 rounded-xl shadow border border-slate-100 flex flex-col items-center justify-center">
+      <h3 class="font-bold text-lg mb-2 text-center text-slate-800">Tiempo estimado por persona</h3>
+      <p class="text-sm text-slate-500 mb-4 text-center">~12 min en total (cada uno entre 1:30 y 2:00)</p>
+      <div class="chart-container">
+        <canvas id="timeChartPersonas"></canvas>
+      </div>
+      <div class="mt-4 text-xs text-slate-400 text-center">P1: Intro · P2: Lex/morf · P3: Comp/deriv · P4: Parasint/acron · P5: División silábica · P6: Tipos de sílabas · P7: Dipt/hiat + cierre</div>
+    </div>
+  </section>
+
+  <!-- ESTRUCTURA 7 PERSONAS (CADA UNA HABLA UNA VEZ) -->
+  <section id="structure" class="space-y-6">
+    <div class="border-b border-slate-200 pb-4">
+      <h2 class="text-2xl font-bold text-slate-900">Los 7 roles · una intervención por persona</h2>
+      <p class="text-slate-600 mt-2">Haz clic en cada tarjeta para ver el guion extendido y los recursos sugeridos.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+      <!-- Lista de personas (izquierda) -->
+      <div class="md:col-span-4 space-y-3" id="speakerList"></div>
+      <!-- Detalle (derecha) -->
+      <div class="md:col-span-8">
+        <div id="speakerDetail" class="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 min-h-[500px] transition-all duration-300 relative overflow-hidden"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFUERZO TEÓRICO (TABS) -->
+  <section id="theory" class="bg-slate-800 rounded-2xl p-8 text-white shadow-xl">
+    <div class="mb-6 text-center md:text-left">
+      <h2 class="text-2xl font-bold">Resumen teórico (apoyo)</h2>
+      <p class="text-slate-400 text-sm">Contenido original basado en los temas de clase.</p>
+    </div>
+    <div class="flex space-x-4 border-b border-slate-600 mb-6 overflow-x-auto pb-2">
+      <button onclick="switchTab('week3')" class="tab-btn active text-lg font-semibold px-4 py-2 hover:text-teal-400">Semana 3</button>
+      <button onclick="switchTab('week4')" class="tab-btn text-lg font-semibold px-4 py-2 hover:text-teal-400">Semana 4</button>
+      <button onclick="switchTab('week5')" class="tab-btn text-lg font-semibold px-4 py-2 hover:text-teal-400">Semana 5</button>
+    </div>
+    <div id="theory-content" class="min-h-[200px]"></div>
+  </section>
+
+  <!-- RECURSOS: PERMITIDO / NO PERMITIDO -->
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="bg-green-50 rounded-xl p-6 border border-green-100 shadow-sm">
+      <h3 class="text-green-800 font-bold text-lg mb-4 flex items-center"><span class="bg-green-200 text-green-800 rounded-full p-1 mr-2 text-xs">✔</span> Permitido / recomendado</h3>
+      <ul class="space-y-3">
+        <li class="flex items-start"><span class="text-green-600 mr-2 text-xl">📷</span><span class="text-sm"><b>Imágenes:</b> árbol para lexema, rompecabezas para composición.</span></li>
+        <li class="flex items-start"><span class="text-green-600 mr-2 text-xl">🧠</span><span class="text-sm"><b>Esquemas:</b> clasificaciones visuales (tipos de sílaba).</span></li>
+        <li class="flex items-start"><span class="text-green-600 mr-2 text-xl">🔑</span><span class="text-sm"><b>Palabras clave:</b> solo términos esenciales.</span></li>
+        <li class="flex items-start"><span class="text-green-600 mr-2 text-xl">🎵</span><span class="text-sm"><b>Música suave</b> de fondo, instrumental, volumen bajo.</span></li>
+      </ul>
+    </div>
+    <div class="bg-red-50 rounded-xl p-6 border border-red-100 shadow-sm">
+      <h3 class="text-red-800 font-bold text-lg mb-4 flex items-center"><span class="bg-red-200 text-red-800 rounded-full p-1 mr-2 text-xs">✖</span> Prohibido</h3>
+      <ul class="space-y-3">
+        <li class="flex items-start"><span class="text-red-600 mr-2 text-xl">📜</span><span class="text-sm"><b>Lectura literal:</b> no leer diapositivas ni guiones.</span></li>
+        <li class="flex items-start"><span class="text-red-600 mr-2 text-xl">🧱</span><span class="text-sm"><b>Muros de texto:</b> nada de párrafos largos en pantalla.</span></li>
+        <li class="flex items-start"><span class="text-red-600 mr-2 text-xl">⚖️</span><span class="text-sm"><b>Desequilibrio:</b> todos deben participar por igual.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- REFERENCIAS APA 7 -->
+  <section id="references" class="bg-white rounded-xl p-8 shadow-lg border border-slate-200">
+    <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b border-slate-200 pb-2">Referencias (APA 7) — clic para copiar</h2>
+    <div class="space-y-4 font-mono text-sm">
+      <div class="bg-slate-50 p-4 rounded hover:bg-slate-100 transition cursor-pointer border-l-4 border-teal-500" onclick="copyToClipboard(this)"><p>LibreTexts Humanities. (s.f.). <i>Clases de palabras y funciones gramaticales</i>. Recuperado de https://human.libretexts.org/</p><span class="text-xs text-teal-600 mt-2 block">clic para copiar</span></div>
+      <div class="bg-slate-50 p-4 rounded hover:bg-slate-100 transition cursor-pointer border-l-4 border-teal-500" onclick="copyToClipboard(this)"><p>MAVS Open Press. (2023). <i>Capítulo 3: La estructura de las palabras</i>. En Español práctico. Recuperado de https://uta.pressbooks.pub/</p><span class="text-xs text-teal-600 mt-2">clic para copiar</span></div>
+      <div class="bg-slate-50 p-4 rounded hover:bg-slate-100 transition cursor-pointer border-l-4 border-teal-500" onclick="copyToClipboard(this)"><p>Monera, V. (2024, 29 febrero). <i>El léxico español</i>. Divinas palabras. https://www.victoriamonera.com/</p><span class="text-xs text-teal-600 mt-2">clic para copiar</span></div>
+      <div class="bg-slate-50 p-4 rounded hover:bg-slate-100 transition cursor-pointer border-l-4 border-teal-500" onclick="copyToClipboard(this)"><p>Real Academia Española. (2010). <i>Ortografía de la lengua española</i>. Espasa.</p><span class="text-xs text-teal-600 mt-2">clic para copiar</span></div>
+      <div class="bg-slate-50 p-4 rounded hover:bg-slate-100 transition cursor-pointer border-l-4 border-teal-500" onclick="copyToClipboard(this)"><p>Universidad Gerardo Barrios. (2025). <i>Material de estudio Semanas 3, 4 y 5</i> [PDF]. Aula Virtual UGB.</p><span class="text-xs text-teal-600 mt-2">clic para copiar</span></div>
+    </div>
+    <div id="copyToast" class="fixed bottom-4 right-4 bg-teal-800 text-white px-6 py-3 rounded-lg shadow-xl opacity-0 transition-opacity pointer-events-none">¡Copiado!</div>
+  </section>
+</main>
+
+<footer class="bg-slate-800 text-slate-400 py-8 mt-12">
+  <div class="max-w-7xl mx-auto px-4 text-center text-sm">
+    <p>Herramienta de planificación · Universidad Gerardo Barrios · Ingeniería en Sistemas</p>
+  </div>
+</footer>
+
+<script>
+  // ------------------------------------------------------------
+  // DATOS COMPLETOS DE LOS 7 INTEGRANTES (guión extenso original)
+  // ------------------------------------------------------------
+  const speakers = [
+    { id:1, role:"Intro + Palabra", icon:"🎤", time:"1:45 min",
+      desc:"Saludo, presentación y concepto de palabra.",
+      content: {
+        title:"Introducción y definición de palabra",
+        whatToSay:[
+          "<b>Saludo formal:</b> 'Hola, somos el equipo [nombre] de la UGB, carrera Ingeniería en Sistemas. Hoy explicaremos la morfología del castellano: estructura de palabras, formación, división silábica y vocales.'",
+          "<b>Definición de palabra:</b> 'Una palabra es una unidad léxica con un significado fijo y una categoría gramatical. Está formada por sonidos articulados.'",
+          "<b>Lexema (raíz):</b> 'Parte invariable que aporta el significado principal. Ej: en “mar”, “marino”, “maremoto” el lexema es MAR. Hay lexemas independientes (árbol) y dependientes (camin-).'",
+          "<b>Morfema:</b> 'Aporta significado gramatical. En “perros”, -o indica masculino, -s plural. Tipos: prefijos (in-), sufijos (-ito), flexivos (género, número).'",
+          "<b>Cierre de la participación:</b> 'A continuación mis compañeros desarrollarán cada proceso en detalle.'"
+        ],
+        resources:[
+          "Diapo con la palabra 'flor' y su familia: florero, floral, florecer.",
+          "Esquema de árbol: raíz (lexema) y hojas (morfemas).",
+          "Fotografía de un perro y la palabra 'perros' separada en PERRO (lex) + S (morf)."
+        ]
+    }},
+    { id:2, role:"Lexemas y morfemas (ampliación)", icon:"🧩", time:"1:45 min",
+      desc:"Profundización: clases de lexemas y morfemas.",
+      content: {
+        title:"Clasificación de lexemas y morfemas",
+        whatToSay:[
+          "<b>Retomar:</b> 'Vimos que la palabra tiene dos caras: el lexema y los morfemas. Ahora veamos sus tipos.'",
+          "<b>Lexemas:</b> 'Independientes: funcionan solos (azul, reloj). Dependientes: necesitan morfemas (perr-, am-).'",
+          "<b>Morfemas dependientes:</b> 'Prefijos (re- leer → releer), sufijos (pan -adería → panadería), interfijos (cafecito, la -c- es un infijo sin significado).'",
+          "<b>Morfemas independientes:</b> 'Preposiciones (de, con), conjunciones (y, pero), determinantes.'",
+          "<b>Ejemplo integrador:</b> 'En “inmoral”, in- (prefijo), moral (lexema). En “casita”, cas- (lexema), -it- (sufijo apreciativo), -a (género).'"
+        ],
+        resources:[
+          "Tabla comparativa: independientes / dependientes con ejemplos.",
+          "Dibujo de una casa pequeña: CAS-ITA, resaltando el sufijo.",
+          "Palabra “IN-MOR-AL” desglosada con colores."
+        ]
+    }},
+    { id:3, role:"Composición y derivación", icon:"⚙️", time:"2:00 min",
+      desc:"Formación de palabras: unión y afijos.",
+      content: {
+        title:"Procesos de formación (I)",
+        whatToSay:[
+          "<b>Introducción:</b> 'El español usa varios mecanismos para crear palabras. Hoy veremos composición y derivación.'",
+          "<b>Composición:</b> 'Unión de dos o más lexemas. Puede ser perfecta (se escriben juntos: telaraña = tela+araña) o imperfecta (separados o con guion: coche cama, buque escuela).'",
+          "<b>Ejemplos de composición:</b> 'hierbabuena, agridulce, correveidile, paracaídas.'",
+          "<b>Derivación:</b> 'Añadir afijos a un lexema. Prefijos: ante-, anti-, ex- (antebrazo). Sufijos: -ción, -miento, -eza (belleza).'",
+          "<b>Productividad:</b> 'De “pan” podemos derivar panadero, panadería, empanar, panecillo. Es el recurso más fértil del idioma.'"
+        ],
+        resources:[
+          "Animación: dos bloques “hierba” + “buena” se fusionan.",
+          "Ejemplos con imágenes: pan, panadero, panadería.",
+          "Lista rápida: prefijos comunes (re-, sub-, super-) y sufijos (-dor, -ble)."
+        ]
+    }},
+    { id:4, role:"Parasíntesis y acronimia", icon:"🔗", time:"2:00 min",
+      desc:"Combinación compleja y siglas.",
+      content: {
+        title:"Procesos de formación (II)",
+        whatToSay:[
+          "<b>Conexión:</b> 'Además de composición y derivación, existen dos procesos más: parasíntesis y acronimia.'",
+          "<b>Parasíntesis:</b> 'Composición y derivación simultáneas. No existe la palabra solo con composición o solo con derivación. Ejemplo: “picapedrero” viene de pica + piedra + -ero; no existen *picapiedra ni *piedrero solos.'",
+          "<b>Otros ejemplos:</b> 'sietemesino (siete+mes+-ino), quinceañero, paraguazo (paraguas+-azo).'",
+          "<b>Acronimia:</b> 'Formación a partir de iniciales o fragmentos. Siglas que se leen como palabras: OVNI, SIDA, UNESCO, radar. Cuando se popularizan, se escriben con minúsculas (láser, internet).'",
+          "<b>Reglas:</b> 'Las siglas no llevan punto (ONG, no O.N.G.). El plural no se marca con s: las ONG, no las ONGs.'"
+        ],
+        resources:[
+          "Fórmula: (pica + piedra) + -ero = picapedrero.",
+          "Logos: UNESCO, OVNI, SIDA.",
+          "Ejemplo visual: PARAGUAS + -AZO = PARAGUAZO."
+        ]
+    }},
+    { id:5, role:"División silábica", icon:"✂️", time:"2:00 min",
+      desc:"Reglas para separar en sílabas.",
+      content: {
+        title:"Reglas de división silábica",
+        whatToSay:[
+          "<b>Importancia:</b> 'Saber dividir en sílabas es clave para la acentuación y para partir palabras al final del renglón.'",
+          "<b>Regla básica:</b> 'Una consonante entre vocales va con la vocal siguiente: ca-sa, sa-lud.'",
+          "<b>Grupos inseparables:</b> 'pr, br, tr, dr, cr, gr, fr, pl, bl, cl, gl, fl nunca se separan: a-bril, a-tlántico (en América se mantiene unido, en España varía).'",
+          "<b>Tres consonantes:</b> 'Las dos primeras con la vocal anterior: ins-tan-te, cons-tan-te.'",
+          "<b>Cuatro consonantes:</b> 'Dos con la anterior y dos con la siguiente: cons-truir, abs-tracto.'",
+          "<b>Dígrafos:</b> 'ch, ll, rr son inseparables: ca-lle, pe-rro.'"
+        ],
+        resources:[
+          "Ejemplo visual: “cons-tan-te” con colores.",
+          "Tabla de grupos inseparables (PR, BR, TR...).",
+          "Dibujo de tijeras separando una palabra."
+        ]
+    }},
+    { id:6, role:"Tipos de sílabas / clasificación", icon:"📐", time:"1:45 min",
+      desc:"Sílaba tónica, átona, clases y número de sílabas.",
+      content: {
+        title:"Clases de sílabas y clasificación de palabras",
+        whatToSay:[
+          "<b>Sílaba tónica y átona:</b> 'La sílaba que suena más fuerte es la tónica (cá-ma-ra); las demás son átonas.'",
+          "<b>Tipos según estructura:</b> 'Directas (consonante+vocal: ma-no), inversas (vocal+consonante: al-to), mixtas (C+V+C: pan, mar).'",
+          "<b>Según número de sílabas:</b> 'Monosílabas (sol, luz), bisílabas (ca-sa), trisílabas (pá-ja-ro), tetrasílabas (bi-bli-o-te-ca), pentasílabas, etc.'",
+          "<b>Importancia:</b> 'Reconocer la sílaba tónica es esencial para colocar bien las tildes.'",
+          "<b>Ejemplo lúdico:</b> 'Palabras largas como “electroencefalografista” tienen muchas sílabas y suelen ser esdrújulas.'"
+        ],
+        resources:[
+          "Nota musical sobre la sílaba tónica.",
+          "Tabla: directa/inversa/mixta con ejemplos gráficos.",
+          "Escalera de palabras: 1️⃣ SOL, 2️⃣ CA-SA, 3️⃣ PÁ-JA-RO..."
+        ]
+    }},
+    { id:7, role:"Diptongos, triptongos, hiatos + cierre", icon:"🔊", time:"2:15 min",
+      desc:"Combinaciones vocálicas y despedida.",
+      content: {
+        title:"Vocales en grupo y conclusión general",
+        whatToSay:[
+          "<b>Diptongo:</b> 'Dos vocales en una sílaba. Requiere una cerrada (i,u) átona. Tipos: creciente (cerrada+abierta: via-je), decreciente (abierta+cerrada: ai-re), homogéneo (cerrada+cerrada: ciu-dad).'",
+          "<b>Triptongo:</b> 'Tres vocales en una sílaba: cerrada+abierta+cerrada. Ej: Paraguay, lim-piáis, miau.'",
+          "<b>Hiato:</b> 'Dos vocales juntas pero en sílabas distintas. Simple (dos abiertas: le-ón, ca-er) o acentual (cerrada tónica + abierta: dí-a, ba-úl, ra-íz). La tilde en la cerrada es obligatoria.'",
+          "<b>Resumen final:</b> 'Hemos visto desde la raíz de las palabras hasta cómo se combinan los sonidos. Conocer estas reglas mejora nuestra escritura y expresión oral.'",
+          "<b>Despedida:</b> 'Agradecemos su atención. Somos equipo [nombre]. ¡Hasta la próxima!'"
+        ],
+        resources:[
+          "Tabla comparativa diptongo/triptongo/hiato con ejemplos.",
+          "Palabras destacadas: PARAGUAY, DÍA, BAÚL.",
+          "Frase de cierre y créditos con nombres de los 7 integrantes."
+        ]
+    }}
+  ];
+
+  const theoryContent = {
+    week3: `<div class="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in"><div><h3 class="text-teal-300 font-bold text-xl mb-2">Estructura</h3><p><b>Lexema</b> raíz, significado principal. <b>Morfema</b> accidente gramatical.</p><ul class="list-disc ml-5 text-slate-300 text-sm"><li>Independientes: árbol, azul</li><li>Dependientes: niñ-o, perr-o</li></ul></div><div><h3 class="text-teal-300 font-bold text-xl mb-2">Formación</h3><ul><li><span class="text-white">Composición:</span> lexema+lexema (abrelatas)</li><li><span class="text-white">Derivación:</span> lexema+afijo (caminata)</li><li><span class="text-white">Parasíntesis:</span> composición+derivación simultánea (quinceañero)</li><li><span class="text-white">Acronimia:</span> siglas (OVNI)</li></ul></div></div>`,
+    week4: `<div class="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in"><div><h3 class="text-teal-300 font-bold text-xl mb-2">La sílaba</h3><p>Unidad fonológica con núcleo vocálico. Estructura: ataque, núcleo, coda.</p></div><div><h3 class="text-teal-300 font-bold text-xl mb-2">Reglas</h3><ul><li>CC inseparable (pr, bl...)</li><li>CCC: ins-tan-te</li><li>Dígrafos: ch, ll, rr inseparables</li></ul></div></div>`,
+    week5: `<div class="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in"><div><h3 class="text-teal-300 font-bold text-xl mb-2">Vocales</h3><p>Abiertas A,E,O · Cerradas I,U</p><p><b>Diptongo:</b> unión en una sílaba. <b>Triptongo:</b> C+A+C.</p></div><div><h3 class="text-teal-300 font-bold text-xl mb-2">Hiato</h3><p>Separación en distintas sílabas. Acentual: cerrada tónica + abierta (tilde obligatoria).</p></div></div>`
+  };
+
+  let activeSpeakerId = 1;
+  let chartInstance = null;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderSpeakerList();
+    renderSpeakerDetail(activeSpeakerId);
+    initTimeChart();
+    switchTab('week3');
+  });
+
+  function renderSpeakerList() {
+    const container = document.getElementById('speakerList');
+    container.innerHTML = speakers.map(s => `
+      <button onclick="setActiveSpeaker(${s.id})" class="speaker-card w-full text-left p-4 rounded-xl bg-white shadow-sm border border-slate-200 flex items-center justify-between group ${s.id === activeSpeakerId ? 'active' : ''}">
+        <div class="flex items-center space-x-4">
+          <div class="bg-slate-100 p-2 rounded-lg text-xl group-hover:bg-teal-50">${s.icon}</div>
+          <div><div class="font-bold text-slate-800">Persona ${s.id}</div><div class="text-xs text-slate-500">${s.role}</div></div>
+        </div>
+        <div class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">${s.time}</div>
+      </button>
+    `).join('');
+  }
+
+  window.setActiveSpeaker = function(id) {
+    activeSpeakerId = id;
+    renderSpeakerList();
+    renderSpeakerDetail(id);
+  };
+
+  function renderSpeakerDetail(id) {
+    const sp = speakers.find(s => s.id === id);
+    const container = document.getElementById('speakerDetail');
+    container.style.opacity = '0';
+    setTimeout(() => {
+      container.innerHTML = `
+        <div class="absolute top-0 right-0 p-4 opacity-10 select-none text-9xl">${sp.icon}</div>
+        <div class="relative z-10">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 border-b border-slate-100 pb-4">
+            <div><h3 class="text-2xl font-bold text-teal-800">${sp.content.title}</h3><p class="text-slate-500 text-sm mt-1">${sp.desc}</p></div>
+            <span class="mt-2 sm:mt-0 bg-teal-600 text-white px-4 py-1 rounded-full text-sm font-bold">Persona ${sp.id}</span>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-slate-50 rounded-xl p-5 border border-slate-100">
+              <h4 class="font-bold text-slate-900 mb-4 flex items-center border-b border-slate-200 pb-2"><span class="text-teal-600 mr-2 text-xl">🗣️</span> Guion / qué decir</h4>
+              <ul class="space-y-4">${sp.content.whatToSay.map(i => `<li class="flex items-start text-slate-700 text-sm leading-relaxed"><span class="text-teal-400 mr-3 mt-1">●</span><span>${i}</span></li>`).join('')}</ul>
+            </div>
+            <div>
+              <div class="bg-orange-50 rounded-xl p-5 border border-orange-100 mb-4">
+                <h4 class="font-bold text-slate-900 mb-4 flex items-center border-b border-orange-200 pb-2"><span class="text-orange-500 mr-2 text-xl">🎨</span> Recursos visuales</h4>
+                <ul class="space-y-3">${sp.content.resources.map(r => `<li class="flex items-start text-slate-700 text-sm"><span class="text-orange-400 mr-2">★</span><span>${r}</span></li>`).join('')}</ul>
+              </div>
+              <div class="p-4 bg-blue-50 rounded-xl border-l-4 border-blue-400 text-xs text-blue-900">💡 Habla con naturalidad, usa el guion solo como estructura.</div>
+            </div>
+          </div>
+        </div>
+      `;
+      container.style.opacity = '1';
+    }, 150);
+  }
+
+  function initTimeChart() {
+    const canvas = document.getElementById('timeChartPersonas');
+    if (!canvas) return;
+    if (chartInstance) chartInstance.destroy();
+    const ctx = canvas.getContext('2d');
+    chartInstance = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['P1 Intro', 'P2 Lex/morf', 'P3 Comp/der', 'P4 Parasint', 'P5 Div.sil', 'P6 Tipo sil', 'P7 Dipt/hiat'],
+        datasets: [{
+          label: 'minutos',
+          data: [1.7, 1.7, 1.8, 1.8, 1.7, 1.7, 2.0], // suma 12.4 aprox
+          backgroundColor: '#0d9488',
+          borderRadius: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: { y: { beginAtZero: true, max: 2.5, grid: { color: '#cbd5e1' } } },
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: (c) => ` ${c.raw} min` } } }
+      }
+    });
+  }
+
+  window.switchTab = function(tabId) {
+    document.getElementById('theory-content').innerHTML = theoryContent[tabId];
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    const labels = { week3:'Semana 3', week4:'Semana 4', week5:'Semana 5' };
+    Array.from(document.querySelectorAll('.tab-btn')).find(b => b.textContent.includes(labels[tabId]))?.classList.add('active');
+  };
+
+  window.scrollToSection = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+
+  function copyToClipboard(el) {
+    const text = el.querySelector('p')?.innerText;
+    if (!text) return;
+    navigator.clipboard?.writeText(text).catch(() => {});
+    const toast = document.getElementById('copyToast');
+    toast.classList.remove('opacity-0');
+    setTimeout(() => toast.classList.add('opacity-0'), 2000);
+  }
+  window.copyToClipboard = copyToClipboard;
+</script>
+</body>
+</html>
